@@ -154,7 +154,7 @@ public static function countshopcart()
 
         return redirect()->back()->with('success', 'Item added to cart successfully.');
     }
-    }
+    
 
     /**
      * Update the specified resource in storage.
