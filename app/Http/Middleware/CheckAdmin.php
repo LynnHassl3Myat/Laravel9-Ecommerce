@@ -18,8 +18,10 @@ class CheckAdmin
     public function handle(Request $request, Closure $next)
     {
         $userRoles = Auth::user()->roles->pluck('name');
+        $user = Auth::user();
+         
         If (!$userRoles->contains('admin')) {
-            return redirect(route('admin.login'))->with('error', 'You do not have admin access.');
+            return redirect(route('loginadmin'))->with('error', 'You do not have admin access.');
         }
         return $next($request);
     }

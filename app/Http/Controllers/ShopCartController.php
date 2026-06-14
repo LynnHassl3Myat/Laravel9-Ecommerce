@@ -8,8 +8,17 @@ use Illuminate\Support\Facades\Auth;
 class ShopCartController extends Controller
 {
 
+ public function __construct()
+    {
+        $this->middleware('auth')->except([]);
+    }
+
+
 public static function countshopcart()
 {
+      if (!Auth::check()) {
+        return 0;
+    }
     return ShopCart::where("user_id",Auth::user()->id)->count();
 }
     /**

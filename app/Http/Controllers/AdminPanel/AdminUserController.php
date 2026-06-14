@@ -17,7 +17,7 @@ class AdminUserController extends Controller
     public function index()
     {
         $data = User::all();
-        return view('admin.users.index', ['data' => $data]);
+        return view('admin.user.index', ['data' => $data]);
     }
 
     /**
@@ -51,7 +51,7 @@ class AdminUserController extends Controller
     {
         $data = User::find($id);
         $roles = Role::all();
-        return view('admin.users.show', ['data' => $data, 'roles' => $roles]);
+        return view('admin.user.show', ['data' => $data, 'roles' => $roles]);
     }
 
     /**
@@ -79,7 +79,7 @@ class AdminUserController extends Controller
             $data->user_id = $id;
             $data->role_id = $request->role_id;
             $data->save();
-            return redirect(route('admin.users.show', ['id' => $id]));
+            return redirect(route('admin.user.show', ['id' => $id]));
         }
 
     // public function update(Request $request, $id)

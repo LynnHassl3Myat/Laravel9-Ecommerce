@@ -89,7 +89,7 @@ Route::middleware('auth')->group(function () {
     });
 
     // ******************** ADMIN PANEL  ROUTES *************************
-    Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
+    // Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/',[AdminHomeController::class,'index'])->name('index');
         // ******************** General Routes ROUTES *************************
